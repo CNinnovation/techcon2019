@@ -1,0 +1,44 @@
+@page "/showbooks"
+@using RazorComponentsSample.Models
+@inject BooksContext _context
+
+<h1>Books</h1>
+
+@if (Books == null)
+{
+    <div>Loading...</div>
+}
+else
+{
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Publisher</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Books)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Publisher</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+}
+
+@functions {
+    protected override Task OnInitAsync()
+    {
+        Books = _context.Books.ToList();
+        return Task.CompletedTask;
+    }
+
+    public IEnumerable<Book> Books { get; private set; }
+}
+
+

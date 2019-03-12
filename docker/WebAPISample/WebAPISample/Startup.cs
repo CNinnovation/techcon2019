@@ -31,7 +31,7 @@ namespace WebAPISample
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddHealthChecks().AddCheck("mycheck", () =>
-                new HealthCheckResult(s_called++ > 10 ? HealthStatus.Unhealthy : HealthStatus.Healthy));
+                new HealthCheckResult(Interlocked.Increment(ref s_called) > 5 ? HealthStatus.Unhealthy : HealthStatus.Healthy));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +42,7 @@ namespace WebAPISample
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHealthChecks("/health");
+            app.UseHealthChecks("/healthz");
 
             app.UseMvc();
         }

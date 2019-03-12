@@ -1,22 +1,17 @@
-using IoTHubTrigger = Microsoft.Azure.WebJobs.EventHubTriggerAttribute;
-
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Azure.EventHubs;
-using System.Text;
-using System.Net.Http;
-using Microsoft.Extensions.Logging;
-using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Azure.EventHubs;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+using Microsoft.Extensions.Logging;
+using System.Text;
+using System.Threading.Tasks;
+using IoTHubTrigger = Microsoft.Azure.WebJobs.EventHubTriggerAttribute;
 
 namespace ClickToSignalR
 {
     public static class IOTEventFunction
     {
-        private static HttpClient client = new HttpClient();
-
         [FunctionName("negotiate")]
         public static SignalRConnectionInfo Negotiate(
             [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req,

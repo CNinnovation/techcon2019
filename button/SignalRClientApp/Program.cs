@@ -8,16 +8,26 @@ namespace SignalRClientApp
     {
         static async Task Main(string[] args)
         {
-            Console.WriteLine("client - wait for service");
-            Console.ReadLine();
-            var conn = new HubConnectionBuilder().WithUrl("http://localhost:7071/api/").Build();
-
-            conn.On("buttonClicked", (string s) =>
+            try
             {
-                Console.WriteLine($"Buttton clicked with message {s}");
-            });
+                Console.WriteLine("client - wait for service to be ready, please press return afterwards...");
+                Console.ReadLine();
+                var conn = new HubConnectionBuilder().WithUrl("http://localhost:7071/api/").Build();
+                // var conn = new HubConnectionBuilder().WithUrl("https://techconclick.azurewebsites.net/api/").Build();
 
-            await conn.StartAsync();
+                Console.WriteLine("adding the handler");
+                conn.On("buttonClicked", (string s) =>
+                {
+                    Console.WriteLine($"Buttton clicked with message {Environment.NewLine}{s}");
+                });
+
+                await conn.StartAsync();
+                Console.WriteLine($"connection started, waiting for events {conn.State}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             Console.ReadLine();
         }
     }

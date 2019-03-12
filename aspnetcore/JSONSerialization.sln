@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28705.295
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONSerialization", "JSONSerialization\JSONSerialization.csproj", "{BD827C03-84C5-47F0-A435-9B5B53E65D9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD827C03-84C5-47F0-A435-9B5B53E65D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD827C03-84C5-47F0-A435-9B5B53E65D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD827C03-84C5-47F0-A435-9B5B53E65D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD827C03-84C5-47F0-A435-9B5B53E65D9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17E2F942-D632-4CC3-8D63-6F5F8CF3800A}
+	EndGlobalSection
+EndGlobal
